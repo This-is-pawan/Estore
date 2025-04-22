@@ -3,6 +3,7 @@ const server = express();
 const cors = require("cors");
 const user = require("./mongoose");
 require("./db");
+require('dotenv').config();
 
 // Middleware
 server.use(cors());
