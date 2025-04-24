@@ -1,13 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Search = () => {
   return (
     <div>
-      <div className="search">
-       <div className="search_box">
-        <input type="text" className='search_input' />
-       </div>
-      </div>
+      
     </div>
   )
 }
