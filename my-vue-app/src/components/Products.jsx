@@ -9,10 +9,14 @@ const Products = () => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
+
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:4000/delete/${id}`);
       setProducts((prev) => prev.filter((item) => item._id !== id));
+    console.log(products);
+    
+    
     } catch (error) {
       console.error("Error deleting item:", error);
     }
@@ -31,7 +35,7 @@ const Products = () => {
     };
 
     fetchData();
-  }, []);
+  }, [products]);
 
   
   const filteredProducts = products.filter((item) =>

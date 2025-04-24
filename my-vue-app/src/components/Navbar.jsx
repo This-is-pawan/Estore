@@ -33,7 +33,7 @@ const Navbar = () => {
 
         <Link to="/Store">Store</Link>
         <Link to="/Products">Products</Link>
-        <Link to="/Contact">Contact</Link>
+        <Link to="/posting/">Post</Link>
         <Link to="/AddProduct">Cart</Link>
 
         <Link to="/login" className="user-link">
