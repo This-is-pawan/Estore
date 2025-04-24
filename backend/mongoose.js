@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
   HD: String,
   operating: String,
   price:String,
+  img:String,
 });
 
 module.exports = mongoose.model("storedt", userSchema);
