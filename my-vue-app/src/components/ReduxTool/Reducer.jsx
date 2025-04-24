@@ -13,7 +13,8 @@ export const CounterSlice = createSlice({
       state.cart += 1;
     },
     decrement: (state) => {
-      state.cart -= 1;
+      state.cart = Math.max(0, state.cart - 1);
+      
     },
     incrementByCart: (state, action) => {
       state.cart += action.payload;

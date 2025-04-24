@@ -6,21 +6,22 @@ import { increment, decrement } from "./ReduxTool/Reducer";
 
 const AddProducts = () => {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.counter.cart); 
+  // const cart = useSelector((state) => state.counter.cart); 
 
   
 
   return (
     <div className="carts">
       <h1>Cart</h1>
-      <p>Items in cart: {cart}</p>
+      <br />
+      <br />
+     <p style={{textAlign:'justify'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repellat a delectus quae nobis doloribus quaerat distinctio! Illum voluptatem cum rem quo corporis. Eos, dolorem incidunt cum sit numquam omnis.</p> 
+      {/* <p>Items in cart: {cart}</p> */}
 
       <div className="cart-controls">
-        <button onClick={() => dispatch(increment())} className="cart_btn">➕ Add</button>
-        <button onClick={() => dispatch(decrement())} className="cart_btn">➖ Remove</button>
+        <button  style={{color:'white'} } onClick={() => dispatch(decrement())} className="btn_Cart">Remove to Cart</button>
+      <button  style={{color:'white'} }className="btn_Cart " onClick={() => dispatch(increment())}  >Add to Cart</button>
       </div>
-
-      <button className="btn cart_btn">Add to Cart</button>
       <br />
       <Link to="/products">Go to Product Page</Link>
     </div>

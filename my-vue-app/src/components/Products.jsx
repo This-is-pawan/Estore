@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 import Update from "./Update";
 
 const Products = () => {
-  const [response, setData] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:4000/delete/${id}`);
-      setData((prev) => prev.filter((item) => item._id !== id));
+      setProducts((prev) => prev.filter((item) => item._id !== id));
     } catch (error) {
       console.error("Error deleting item:", error);
     }
@@ -20,9 +21,11 @@ const Products = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get("http://localhost:4000");
-        setData(res.data);
+        setProducts(res.data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setLoading(false);
       }
     };
 
@@ -31,22 +34,26 @@ const Products = () => {
 
   return (
     <div className="products">
-      {response.length > 0 &&
-        response.map((item) => (
+      {loading ? (
+        <h1 style={{ color: "white" }}>Loading...</h1>
+      ) : products.length > 0 ? (
+        products.map((item) => (
           <div key={item._id} className="users">
             <Update
               product={item.product}
               price={item.price}
               size={item.size}
-              Hd={item.HD}
+              Hd={item.HD} 
               id={item._id}
             />
 
-            <p style={{ color: "white",textDecoration:'underLine', }}>Get Data</p>
+            <p style={{ color: "white", textDecoration: "underline" }}>
+              Get Data
+            </p>
+
             <div className="card productOne">
               <h3>{item.product}</h3>
             </div>
-            {/* <div className="card">Quality: {item.HD}</div> */}
             <div className="card">Price: {item.price}</div>
             <div className="card">Size: {item.size}</div>
             <div className="card">Product ID: {item._id}</div>
@@ -60,11 +67,14 @@ const Products = () => {
                 <FaEdit className="edit" />
               </Link>
               <Link to={`/AddProduct`}>
-                <FaShopify className="edit"/>
+                <FaShopify className="edit" />
               </Link>
             </div>
           </div>
-        ))}
+        ))
+      ) : (
+        <h1 style={{ color: "white" }}>No Products Found</h1>
+      )}
     </div>
   );
 };
