@@ -5,3 +5,12 @@ Read: You type something like 2 + 2.
 Eval: It evaluates (calculates) it.
 Print: Shows the result 4.
 Loop: Goes back and waits for your next input.
+##3 CLI — Command Line Interface
+It is a text-based interface to interact with the computer or software.
+You can run commands, manage files, run programs, etc.
+```js
+$ mkdir myfolder      # Make a new folder
+$ cd myfolder         # Change to that folder
+$ touch file.txt      # Create a new file
+
+```
