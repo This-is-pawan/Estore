@@ -14,3 +14,7 @@ $ cd myfolder         # Change to that folder
 $ touch file.txt      # Create a new file
 
 ```
+### in funnyest way you can say -
+1) CLI: You talk to your computer like a boss with commands.
+
+2) REPL: You chat with a programming language directly.
